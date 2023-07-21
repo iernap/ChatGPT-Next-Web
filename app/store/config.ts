@@ -81,7 +81,7 @@ export const ModalConfigValidator = {
     return x as ModelType;
   },
   max_tokens(x: number) {
-    return limitNumber(x, 0, 100000, 100000);
+    return limitNumber(x, 0, 100000, 9999);
   },
   presence_penalty(x: number) {
     return limitNumber(x, -2, 2, 0);
