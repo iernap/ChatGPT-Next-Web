@@ -38,15 +38,15 @@ export const DEFAULT_CONFIG = {
   models: DEFAULT_MODELS as any as LLMModel[],
 
   modelConfig: {
-    model: "gpt-3.5-turbo" as ModelType,
-    temperature: 0.5,
+    model: "gpt-4" as ModelType,
+    temperature: 1,
     top_p: 1,
-    max_tokens: 2000,
+    max_tokens: 100000,
     presence_penalty: 0,
     frequency_penalty: 0,
     sendMemory: true,
-    historyMessageCount: 4,
-    compressMessageLengthThreshold: 1000,
+    historyMessageCount: 600,
+    compressMessageLengthThreshold: 2000,
     enableInjectSystemPrompts: true,
     template: DEFAULT_INPUT_TEMPLATE,
   },
@@ -81,7 +81,7 @@ export const ModalConfigValidator = {
     return x as ModelType;
   },
   max_tokens(x: number) {
-    return limitNumber(x, 0, 32000, 2000);
+    return limitNumber(x, 0, 100000, 100000);
   },
   presence_penalty(x: number) {
     return limitNumber(x, -2, 2, 0);
